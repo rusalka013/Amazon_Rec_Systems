@@ -36,7 +36,7 @@ FLAGS = flags.FLAGS
 # Permalinks to download amazon data.
 AMAZON_OUTDOORS_URL = "https://www.tensorflow.org/datasets/catalog/amazon_us_reviews#amazon_us_reviewsoutdoors_v1_00"
 AMAZON_ZIP_FILENAME = "amazon_reviews_us_Outdoors_v1_00.tsv.gz"
-AMAZON_ZIP_HASH = "a6898adb50b9ca05aa231689da44c217cb524e7ebd39d264c56e2832f2c54e20"
+AMAZON_ZIP_HASH = "95a8b6a5d4cd30b7c3a79dbafb88ea78"
 AMAZON_EXTRACTED_DIR = "amazon_reviews_us_Outdoors_v1_00.tsv"
 #RATINGS_FILE_NAME = "ratings.dat"
 #MOVIES_FILE_NAME = "movies.dat"
@@ -98,7 +98,7 @@ class ProductInfo(
 def download_and_extract_data(data_directory,
                               url=AMAZON_OUTDOORS_URL,
                               fname=AMAZON_ZIP_FILENAME,
-                             # file_hash=AMAZON_ZIP_HASH,
+                              file_hash=AMAZON_ZIP_HASH,
                               extracted_dir_name=AMAZON_EXTRACTED_DIR):
   """Download and extract zip containing Amazon data to a given directory.
   Args:
@@ -116,8 +116,8 @@ def download_and_extract_data(data_directory,
   path_to_zip = tf.keras.utils.get_file(
       fname=fname,
       origin=url,
-   #   file_hash=file_hash,
-    #  hash_algorithm="sha256",
+      file_hash=file_hash,
+      hash_algorithm="sha256",
       extract=True,
       cache_dir=data_directory)
   extracted_file_dir = os.path.join(
