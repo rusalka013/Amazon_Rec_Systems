@@ -117,7 +117,7 @@ def download_and_extract_data(data_directory,
       fname=fname,
       origin=url,
       file_hash=file_hash,
-      hash_algorithm="sha256",
+      hash_algorithm="md5",
       extract=True,
       cache_dir=data_directory)
   extracted_file_dir = os.path.join(
