@@ -34,7 +34,7 @@ import tensorflow as tf
 FLAGS = flags.FLAGS
 
 # Permalinks to download amazon data.
-AMAZON_OUTDOORS_URL = "https://www.tensorflow.org/datasets/catalog/amazon_us_reviews#amazon_us_reviewsoutdoors_v1_00"
+AMAZON_OUTDOORS_URL = "https://s3.amazonaws.com/amazon-reviews-pds/tsv/amazon_reviews_us_Outdoors_v1_00.tsv.gz"
 AMAZON_ZIP_FILENAME = "amazon_reviews_us_Outdoors_v1_00.tsv.gz"
 AMAZON_ZIP_HASH = "95a8b6a5d4cd30b7c3a79dbafb88ea78"
 AMAZON_EXTRACTED_DIR = "amazon_reviews_us_Outdoors_v1_00.tsv"
