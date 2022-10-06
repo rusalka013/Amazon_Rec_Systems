@@ -98,7 +98,7 @@ class ProductInfo(
 def download_and_extract_data(data_directory,
                               url=AMAZON_OUTDOORS_URL,
                               fname=AMAZON_ZIP_FILENAME,
-                              file_hash=AMAZON_ZIP_HASH,
+                             # file_hash=AMAZON_ZIP_HASH,
                               extracted_dir_name=AMAZON_EXTRACTED_DIR):
   """Download and extract zip containing Amazon data to a given directory.
   Args:
