@@ -36,7 +36,7 @@ FLAGS = flags.FLAGS
 # Permalinks to download amazon data.
 AMAZON_OUTDOORS_URL = "https://s3.amazonaws.com/amazon-reviews-pds/tsv/amazon_reviews_us_Outdoors_v1_00.tsv.gz"
 AMAZON_ZIP_FILENAME = "amazon_reviews_us_Outdoors_v1_00.tsv.gz"
-AMAZON_ZIP_HASH = "95a8b6a5d4cd30b7c3a79dbafb88ea78"
+AMAZON_ZIP_HASH = "fad0109168a770734abf356339749542"
 AMAZON_EXTRACTED_DIR = "amazon_reviews_us_Outdoors_v1_00.tsv"
 #RATINGS_FILE_NAME = "ratings.dat"
 #MOVIES_FILE_NAME = "movies.dat"
