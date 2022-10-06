@@ -116,8 +116,8 @@ def download_and_extract_data(data_directory,
   path_to_zip = tf.keras.utils.get_file(
       fname=fname,
       origin=url,
-      file_hash=file_hash,
-      hash_algorithm="sha256",
+   #   file_hash=file_hash,
+    #  hash_algorithm="sha256",
       extract=True,
       cache_dir=data_directory)
   extracted_file_dir = os.path.join(
