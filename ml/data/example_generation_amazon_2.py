@@ -37,7 +37,7 @@ FLAGS = flags.FLAGS
 AMAZON_OUTDOORS_URL = "https://s3.amazonaws.com/amazon-reviews-pds/tsv/amazon_reviews_us_Outdoors_v1_00.tsv.gz"
 AMAZON_ZIP_FILENAME = "amazon_reviews_us_Outdoors_v1_00.tsv.gz"
 AMAZON_ZIP_HASH = "95a8b6a5d4cd30b7c3a79dbafb88ea78"
-AMAZON_EXTRACTED_DIR = "amazon_reviews_us_Outdoors_v1_00"
+AMAZON_EXTRACTED_DIR = "amazon_reviews_us_Outdoors_v1_00.tsv"
 #RATINGS_FILE_NAME = "ratings.dat"
 #MOVIES_FILE_NAME = "movies.dat"
 RATINGS_DATA_COLUMNS = ["marketplace", "customer_id", "review_id", "product_id", "product_parent", "product_title", 
@@ -106,7 +106,7 @@ def download_and_extract_data(data_directory,
     url: Direct path to Amazon dataset .zip file. See constants above for
       examples.
     fname: str, zip file name to download.
-    file_hash: str, SHA-256 file hash.
+    file_hash: str, md5 file hash.
     extracted_dir_name: str, extracted dir name under data_directory.
   Returns:
     Downloaded and extracted data file directory.
@@ -120,8 +120,7 @@ def download_and_extract_data(data_directory,
       hash_algorithm="md5",
       extract=True,
       cache_dir=data_directory)
-  extracted_file_dir = os.path.join(
-      os.path.dirname(path_to_zip), 'extracted_dir_name')
+  extracted_file_dir = os.path.dirname(path_to_zip)
   return extracted_file_dir
 
 
