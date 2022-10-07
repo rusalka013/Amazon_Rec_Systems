@@ -37,7 +37,7 @@ FLAGS = flags.FLAGS
 AMAZON_OUTDOORS_URL = "https://s3.amazonaws.com/amazon-reviews-pds/tsv/amazon_reviews_us_Outdoors_v1_00.tsv.gz"
 AMAZON_ZIP_FILENAME = "amazon_reviews_us_Outdoors_v1_00.tsv.gz"
 AMAZON_ZIP_HASH = "95a8b6a5d4cd30b7c3a79dbafb88ea78"
-AMAZON_EXTRACTED_DIR = "amazon_reviews_us_Outdoors_v1_00.tsv"
+AMAZON_EXTRACTED_DIR = "amazon_reviews_us_Outdoors_v1_00"
 #RATINGS_FILE_NAME = "ratings.dat"
 #MOVIES_FILE_NAME = "movies.dat"
 RATINGS_DATA_COLUMNS = ["marketplace", "customer_id", "review_id", "product_id", "product_parent", "product_title", 
@@ -98,8 +98,8 @@ class ProductInfo(
 def download_and_extract_data(data_directory,
                               url=AMAZON_OUTDOORS_URL,
                               fname=AMAZON_ZIP_FILENAME,
-                              file_hash=AMAZON_ZIP_HASH,
-                              extracted_dir_name=AMAZON_EXTRACTED_DIR):
+                              file_hash=AMAZON_ZIP_HASH):
+                             # extracted_dir_name=AMAZON_EXTRACTED_DIR):
   """Download and extract zip containing Amazon data to a given directory.
   Args:
     data_directory: Local path to extract dataset to.
@@ -121,7 +121,7 @@ def download_and_extract_data(data_directory,
       extract=True,
       cache_dir=data_directory)
   extracted_file_dir = os.path.join(
-      os.path.dirname(path_to_zip), extracted_dir_name)
+      os.path.dirname(path_to_zip), 'extracted_dir_name')
   return extracted_file_dir
 
 
