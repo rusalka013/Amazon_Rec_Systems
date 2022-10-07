@@ -120,9 +120,9 @@ def download_and_extract_data(data_directory,
       hash_algorithm="md5",
       extract=True,
       cache_dir=data_directory)
-  extracted_file_dir = os.path.join(
-      os.path.dirname(path_to_zip), extracted_dir_name)
-  return extracted_file_dir
+ # extracted_file_dir = os.path.join(
+  #    os.path.dirname(path_to_zip), extracted_dir_name)
+  return path_to_zip
 
 
 def read_data(data_directory, min_rating=None):
