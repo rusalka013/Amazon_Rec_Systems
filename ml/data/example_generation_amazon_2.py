@@ -98,8 +98,8 @@ class ProductInfo(
 def download_and_extract_data(data_directory,
                               url=AMAZON_OUTDOORS_URL,
                               fname=AMAZON_ZIP_FILENAME,
-                              file_hash=AMAZON_ZIP_HASH):
-                             # extracted_dir_name=AMAZON_EXTRACTED_DIR):
+                              file_hash=AMAZON_ZIP_HASH,
+                              extracted_dir_name=AMAZON_EXTRACTED_DIR):
   """Download and extract zip containing Amazon data to a given directory.
   Args:
     data_directory: Local path to extract dataset to.
@@ -120,7 +120,8 @@ def download_and_extract_data(data_directory,
       hash_algorithm="md5",
       extract=True,
       cache_dir=data_directory)
-  extracted_file_dir = os.path.dirname(path_to_zip)
+  extracted_file_dir = os.path.join(
+      os.path.dirname(path_to_zip), extracted_dir_name)
   return extracted_file_dir
 
 
