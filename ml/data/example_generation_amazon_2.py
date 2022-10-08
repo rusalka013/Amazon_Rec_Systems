@@ -157,13 +157,15 @@ def read_data(data_directory, min_rating=None):
   return ratings_df #, movies_df
 
 
+prod_info_cols = ['customer_id', 'product_id', 'star_rating', 'review_date']
+
 def convert_to_timelines(ratings_df):
   """Convert ratings data to user."""
   timelines = collections.defaultdict(list)
   product_counts = collections.Counter()
-  for customer_id, product_id, star_rating, review_date in ratings_df.values:
+  for customer_id, product_id, star_rating, review_date in ratings_df[prod_info_cols].values:
     timelines[customer_id].append(
-        ProductInfo(product_id=product_id, review_date=int(review_date), start_rating=star_rating))
+        ProductInfo(product_id=product_id, review_date=int(review_date), star_rating=star_rating))
     product_counts[product_id] += 1
   # Sort per-user timeline by review_date
   for (customer_id, context) in timelines.items():
