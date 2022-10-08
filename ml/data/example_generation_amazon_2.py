@@ -141,6 +141,7 @@ def read_data(data_directory, min_rating=None):
       sep="\t", error_bad_lines=False)
      # names=RATINGS_DATA_COLUMNS)
     #  encoding="unicode_escape")  # May contain unicode. Need to escape.
+  ratings_df = ratings_df.dropna()
   ratings_df["review_date"] = ratings_df["review_date"].str.replace('-','')
   ratings_df["review_date"] = ratings_df["review_date"].apply(int)
   if min_rating is not None:
@@ -190,7 +191,7 @@ def generate_product_dict(ratings_df):
   return [
       extract_year_from_title(movies_dict[movie.product_id].title)
       for movie in movies
-  ]
+ # ]
 
 
 #def generate_movie_genres(movies_dict, movies):
