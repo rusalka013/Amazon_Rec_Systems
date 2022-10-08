@@ -139,11 +139,12 @@ def read_data(data_directory, min_rating=None):
   """Read amazon dataset file into dataframe."""
   ratings_df = pd.read_csv(data_directory,
       sep="\t",
-      dtype={'product_category': 'str', 'product_title': 'str', 'star_rating': 'int'},
-      on_bad_lines='skip')
+      dtype={'product_category': 'str', 'product_title': 'str'},
+      error_bad_lines=False)
      # names=RATINGS_DATA_COLUMNS)
     #  encoding="unicode_escape")  # May contain unicode. Need to escape.
   ratings_df = ratings_df.dropna()
+  ratings_df["star_rating"] = ratings_df["star_rating"].astype('int')
   ratings_df["review_date"] = ratings_df["review_date"].str.replace('-','')
   ratings_df["review_date"] = ratings_df["review_date"].apply(int)
   if min_rating is not None:
