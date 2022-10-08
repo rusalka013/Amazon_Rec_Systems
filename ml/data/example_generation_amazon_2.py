@@ -138,11 +138,12 @@ def download_and_extract_data(data_directory,
 def read_data(data_directory, min_rating=None):
   """Read amazon dataset file into dataframe."""
   ratings_df = pd.read_csv(data_directory,
-      sep="\t", error_bad_lines=False)
+      sep="\t",
+      on_bad_lines='skip')
      # names=RATINGS_DATA_COLUMNS)
     #  encoding="unicode_escape")  # May contain unicode. Need to escape.
   ratings_df = ratings_df.dropna()
-  ratings_df['product_category'] = ratings_df['product_category'].astype(str)
+  ratings_df = ratings_df.drop(columns = 'product_category', inplace = True)
   ratings_df["review_date"] = ratings_df["review_date"].str.replace('-','')
   ratings_df["review_date"] = ratings_df["review_date"].apply(int)
   if min_rating is not None:
@@ -179,42 +180,6 @@ def generate_product_dict(ratings_df):
   products_dict[0] = ProductInfo()
   return products_dict
 
-
-#def extract_year_from_title(title):
-  year = re.search(r"\((\d{4})\)", title)
-  if year:
-    return int(year.group(1))
-  return 0
-
-
-#def generate_feature_of_movie_years(movies_dict, movies):
- # """Extracts year feature for movies from movie title."""
- # return [
- #     extract_year_from_title(movies_dict[movie.product_id].title)
- #     for movie in movies
- # ]
-
-
-#def generate_movie_genres(movies_dict, movies):
-  """Create a feature of the genre of each movie.
-  Save genre as a feature for the movies.
-  Args:
-    movies_dict: Dict of movies, keyed by product_id with value of (title, genre)
-    movies: list of movies to extract genres.
-  Returns:
-    movie_genres: list of genres of all input movies.
-  """
- # movie_genres = []
- # for movie in movies:
- #   if not movies_dict[movie.product_id].genres:
-  #    continue
- #   genres = [
- #       tf.compat.as_bytes(genre)
-#        for genre in movies_dict[movie.product_id].genres.split("|")
-  #  ]
- #   movie_genres.extend(genres)
-
- # return movie_genres
 
 
 def _pad_or_truncate_product_feature(feature, max_len, pad_value):
