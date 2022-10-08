@@ -118,7 +118,7 @@ def download_and_extract_data(data_directory,
       origin=url,
       file_hash=file_hash,
       hash_algorithm="md5",
-      extract=True,
+      extract=False,
       cache_dir=data_directory)
   extracted_file_dir = os.path.join(
       os.path.dirname(path_to_zip), extracted_dir_name)
