@@ -173,12 +173,13 @@ def convert_to_timelines(ratings_df):
     timelines[customer_id] = context
   return timelines, product_counts
 
+prod_cols = ['product_id', 'product_title', 'helpful_votes']
 
 def generate_product_dict(ratings_df):
   """Generates products dictionary from ratings dataframe."""
   products_dict = {
       product_id: ProductInfo(product_id=product_id, product_title=product_title, helpful_votes=helpful_votes)
-      for product_id, product_title, helpful_votes in ratings_df.values
+      for product_id, product_title, helpful_votes in ratings_df[prod_cols].values
   }
   products_dict[0] = ProductInfo()
   return products_dict
