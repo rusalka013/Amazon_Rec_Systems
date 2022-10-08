@@ -190,7 +190,6 @@ def _pad_or_truncate_product_feature(feature, max_len, pad_value):
 def generate_examples_from_single_timeline(timeline,
                                            products_dict,
                                            max_context_len=100):
-                                        #   max_context_movie_genre_len=320):
   """Generate TF examples from a single user timeline.
   Generate TF examples from a single user timeline. Timeline with length less
   than minimum timeline length will be skipped. And if context user history
