@@ -187,10 +187,10 @@ def generate_product_dict(ratings_df):
 
 
 #def generate_feature_of_movie_years(movies_dict, movies):
-  """Extracts year feature for movies from movie title."""
-  return [
-      extract_year_from_title(movies_dict[movie.product_id].title)
-      for movie in movies
+ # """Extracts year feature for movies from movie title."""
+ # return [
+ #     extract_year_from_title(movies_dict[movie.product_id].title)
+ #     for movie in movies
  # ]
 
 
@@ -203,17 +203,17 @@ def generate_product_dict(ratings_df):
   Returns:
     movie_genres: list of genres of all input movies.
   """
-  movie_genres = []
-  for movie in movies:
-    if not movies_dict[movie.product_id].genres:
-      continue
-    genres = [
-        tf.compat.as_bytes(genre)
-        for genre in movies_dict[movie.product_id].genres.split("|")
-    ]
-    movie_genres.extend(genres)
+ # movie_genres = []
+ # for movie in movies:
+ #   if not movies_dict[movie.product_id].genres:
+  #    continue
+ #   genres = [
+ #       tf.compat.as_bytes(genre)
+#        for genre in movies_dict[movie.product_id].genres.split("|")
+  #  ]
+ #   movie_genres.extend(genres)
 
-  return movie_genres
+ # return movie_genres
 
 
 def _pad_or_truncate_product_feature(feature, max_len, pad_value):
