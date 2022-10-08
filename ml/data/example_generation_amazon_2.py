@@ -122,13 +122,14 @@ def download_and_extract_data(data_directory,
       cache_dir=data_directory)
   extracted_file_dir = os.path.join(
       os.path.dirname(path_to_zip), extracted_dir_name)
+  logging.info("extracted data dir: %s", extracted_file_dir)
   return extracted_file_dir
 
 
 def read_data(data_directory, min_rating=None):
   """Read amazon dataset file into dataframe."""
   ratings_df = pd.read_csv(data_directory,
-      sep="\t",
+      sep="::",
       names=RATINGS_DATA_COLUMNS,
       encoding="unicode_escape")  # May contain unicode. Need to escape.
   ratings_df["review_date"] = ratings_df["review_date"].apply(int)
