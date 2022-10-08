@@ -30,6 +30,8 @@ from absl import flags
 from absl import logging
 import pandas as pd
 import tensorflow as tf
+import gzip
+import shutil
 
 FLAGS = flags.FLAGS
 
@@ -122,7 +124,14 @@ def download_and_extract_data(data_directory,
       cache_dir=data_directory)
   extracted_file_dir = os.path.join(
       os.path.dirname(path_to_zip), extracted_dir_name)
+  
+  with gzip.open(path_to_zip, 'rb') as f_in:
+    with open(extracted_file_dir, 'wb') as f_out:
+      shutil.copyfileobj(f_in, f_out)
+      
   logging.info("extracted data dir: %s, %s", path_to_zip, extracted_file_dir)
+  
+  print("extracted data dir: ", path_to_zip, extracted_file_dir)
   return extracted_file_dir
 
 
