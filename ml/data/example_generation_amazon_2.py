@@ -139,8 +139,8 @@ def read_data(data_directory, min_rating=None):
   """Read amazon dataset file into dataframe."""
   ratings_df = pd.read_csv(data_directory,
       sep="\t",
-      names=RATINGS_DATA_COLUMNS,
-      encoding="unicode_escape")  # May contain unicode. Need to escape.
+      names=RATINGS_DATA_COLUMNS)
+    #  encoding="unicode_escape")  # May contain unicode. Need to escape.
   ratings_df["review_date"] = ratings_df["review_date"].apply(int)
   if min_rating is not None:
     ratings_df = ratings_df[ratings_df["star_rating"] >= min_rating]
