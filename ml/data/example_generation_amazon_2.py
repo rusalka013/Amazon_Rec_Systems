@@ -314,7 +314,7 @@ def generate_product_feature_vocabs(ratings_df, product_counts):
   product_vocab = []
   #movie_genre_counter = collections.Counter()
   #movie_year_counter = collections.Counter()
-  for product_parent, product_title, helpful_votes in ratings_df.values:
+  for product_parent, product_title, helpful_votes in ratings_df[prod_cols].values:
     count = product_counts.get(product_parent) or 0
     product_vocab.append([product_parent, product_title, helpful_votes, count])
    # year = extract_year_from_title(title)
