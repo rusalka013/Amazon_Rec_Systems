@@ -4,7 +4,7 @@ activity_feature_groups {
     feature_type: INT
     vocab_size: 2138419
     embedding_dim: 8
-    feature_length: 10
+    feature_length: 5
   }
   features {
     feature_name: "context_product_rating"
