@@ -83,17 +83,17 @@ def define_flags():
 
 class ProductInfo(
     collections.namedtuple(
-        "ProductInfo", ["product_id", "review_date", "star_rating", "product_title", "helpful_votes"])):
+        "ProductInfo", ["product_parent", "review_date", "star_rating", "product_title", "helpful_votes"])):
   """Data holder of basic information of a movie."""
   __slots__ = ()
 
   def __new__(cls,
-              product_id=PAD_PRODUCT_ID,
+              product_parent=PAD_PRODUCT_ID,
               review_date=0,
               star_rating=PAD_RATING,
               product_title="",
               helpful_votes=""):
-    return super(ProductInfo, cls).__new__(cls, product_id, review_date, star_rating,
+    return super(ProductInfo, cls).__new__(cls, product_parent, review_date, star_rating,
                                            product_title, helpful_votes)
 
 
@@ -157,29 +157,29 @@ def read_data(data_directory, min_rating=None):
   return ratings_df #, movies_df
 
 
-prod_info_cols = ['customer_id', 'product_id', 'star_rating', 'review_date']
+prod_info_cols = ['customer_id', 'product_parent', 'star_rating', 'review_date']
 
 def convert_to_timelines(ratings_df):
   """Convert ratings data to user."""
   timelines = collections.defaultdict(list)
   product_counts = collections.Counter()
-  for customer_id, product_id, star_rating, review_date in ratings_df[prod_info_cols].values:
+  for customer_id, product_parent, star_rating, review_date in ratings_df[prod_info_cols].values:
     timelines[customer_id].append(
-        ProductInfo(product_id=product_id, review_date=int(review_date), star_rating=star_rating))
-    product_counts[product_id] += 1
+        ProductInfo(product_parent=product_parent, review_date=int(review_date), star_rating=star_rating))
+    product_counts[product_parent] += 1
   # Sort per-user timeline by review_date
   for (customer_id, context) in timelines.items():
     context.sort(key=lambda x: x.review_date)
     timelines[customer_id] = context
   return timelines, product_counts
 
-prod_cols = ['product_id', 'product_title', 'helpful_votes']
+prod_cols = ['product_parent', 'product_title', 'helpful_votes']
 
 def generate_product_dict(ratings_df):
   """Generates products dictionary from ratings dataframe."""
   products_dict = {
-      product_id: ProductInfo(product_id=product_id, product_title=product_title, helpful_votes=helpful_votes)
-      for product_id, product_title, helpful_votes in ratings_df[prod_cols].values
+      product_parent: ProductInfo(product_parent=product_parent, product_title=product_title, helpful_votes=helpful_votes)
+      for product_parent, product_title, helpful_votes in ratings_df[prod_cols].values
   }
   products_dict[0] = ProductInfo()
   return products_dict
@@ -216,8 +216,8 @@ def generate_examples_from_single_timeline(timeline,
     # Pad context with out-of-vocab product id 0.
     while len(context) < max_context_len:
       context.append(ProductInfo())
-    label_product_id = int(timeline[label_idx].product_id)
-    context_product_id = [int(product.product_id) for product in context]
+    label_product_id = int(timeline[label_idx].product_parent)
+    context_product_id = [int(product.product_parent) for product in context]
     context_product_rating = [product.star_rating for product in context]
    # context_movie_year = generate_feature_of_movie_years(products_dict, context)
    # context_movie_genres = generate_movie_genres(products_dict, context)
@@ -300,7 +300,7 @@ def generate_examples_from_timelines(timelines,
 
 def generate_product_feature_vocabs(ratings_df, product_counts):
   """Generate vocabularies for movie features.
-  Generate vocabularies for movie features (product_id, genre, year), sorted by
+  Generate vocabularies for movie features (product_parent, genre, year), sorted by
   usage count. Vocab id 0 will be reserved for default padding value.
   Args:
     movies_df: Dataframe for movies.
@@ -314,9 +314,9 @@ def generate_product_feature_vocabs(ratings_df, product_counts):
   product_vocab = []
   #movie_genre_counter = collections.Counter()
   #movie_year_counter = collections.Counter()
-  for product_id, product_title, helpful_votes in ratings_df.values:
-    count = product_counts.get(product_id) or 0
-    product_vocab.append([product_id, product_title, helpful_votes, count])
+  for product_parent, product_title, helpful_votes in ratings_df.values:
+    count = product_counts.get(product_parent) or 0
+    product_vocab.append([product_parent, product_title, helpful_votes, count])
    # year = extract_year_from_title(title)
     #movie_year_counter[year] += 1
    # for genre in genres.split("|"):
