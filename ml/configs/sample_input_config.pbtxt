@@ -4,12 +4,12 @@ activity_feature_groups {
     feature_type: INT
     vocab_size: 2138419
     embedding_dim: 8
-    feature_length: 5
+    feature_length: 10
   }
   features {
     feature_name: "context_product_rating"
     feature_type: FLOAT
-    feature_length: 5
+    feature_length: 10
   }
   encoder_type: CNN
 }
