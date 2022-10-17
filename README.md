@@ -68,7 +68,7 @@ A note on dataset (from Amazon):
 ## Top 5 Recommendations Based on Popularity
 
 
-![alt text](https://github.com/rusalka013/Amazon_Rec_Systems/blob/main/Visuals/Most_popular_products.png)
+![alt text](https://github.com/rusalka013/Amazon_Rec_Systems/blob/main/Visuals/Top-10_recs.png)
  
 
 ## Item-to-item Retrieval Model
