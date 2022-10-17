@@ -1,62 +1,49 @@
-# Movie Recommendation System
+# Neural Networks Recommendation System on Amazon Reviews Dataset using TensorFlow Recommenders. 
 
 **Authors:** Elena Burlando
 
 ## Overview
-
-For this project we will be analyzing MovieLens data in order to develop a better performing recommendation system that will generate Top-N recommended movies to a client.
+For this project we will be exploring Neural Networks to build recommendation systems for Amazon Outdoor product reviews dataset. TensorFlow Recommenders will be used to develop Retrieval, Ranking, and Sequential algorithms. BruteForce and ScaNN will be tested for serving models. 
 
 The objective:
 
-* to develop a Top-N movie recommendations for existing clients with an improved Cumulative Hit Rate (to ~ 0.05) for ratings >= 4.0.
+* Explore Neural Networks by using TensorFlow Recommenders to address Cold Start problem. 
 
 Stakeholder:
 
-* Engineering team
+* Marketing team at Amazon
 
 
 ## Business Problem
 
-A movie streaming company is looking to fine-tune its recommendation system. After a recent survey and a followed up research it is finding that its current recommendation system is too overwhelming to clients and presents too many options (Top-N = 100) with some that are clearly irrelevant. Low engagement is also indicated by a low Hit Rate (0.01) of top recommenders.
+According to Statista, the Sports and Outdoor market segment is projected to reach 20.75bn US dollars in 2022 with an annual growth rate of 13.29% (link to source). User penetration is expected to be 20% in 2022 and 22.2% by 2025. However, with a projected market volume of 23,890.00m US dollars in 2022, most revenue will be coming from China. The average revenue per customer is set to be 310.00 US dollars.
 
-One of the main pain points for this project is a lack of active environment (a website) to perform A/B testing which would be the ultimate test for a new system. The second pain point is the lack of implicit data such as minutes watched, clicks, browsing history, etc.
+With the above statistics in mind, Amazon has been looking into further increasing user penetration locally in US thus driving increase in sales and revenue. One of the strategies is to build a rec system to deal with a cold-start problem in order to acquire new users. For this problem we will explore neural networks by using TensorFlow Recommenders.
 
 
 ## Data Understanding and Methods
 
-* [MovieLens small dataset](https://grouplens.org/datasets/movielens/latest/)
+* [Amazon Reviews: Outdoors dataset](https://www.tensorflow.org/datasets/catalog/amazon_us_reviews)
 
-The dataset 100,000 ratings and 3,600 tag applications applied to 9,000 movies by 600 users. Last updated 9/2018. 
+Amazon Review datasets has an expansive records of reviews spanning for over 20 years from 1995 through 2015. I picked 'Outdoor' category due to my passion for nature and assumption that to some extend most people have at least one outdoor activity that they like. The last point is to find a few people to test a final model in real life. 
+Outdoor dataset has over 2.3M review entries. I will only use 5% of data that corresponds to 115120 entries to develop and test models. 
 
-**Data is broken down into four datasets**: 
- * links: 'movieId', 'imdbId', 'tmdbId'
- * movies: 'movieId', 'title', 'genres' 
- * ratings: 'userId',  'movieId', 'rating', 'timestamp' 
- * tags: 'userId', 'movieId', 'tag', 'timestamp' 
+A note on dataset (from Amazon): 
+* Dataset is in TCV file format. 
+*  Each line in the data files corresponds to an individual review (tab delimited, with no quote and escape characters).
+* 'product_pareent' - random ideentifier that can be used to aggregate reviews for the same product. 
+* 'total_votes' - number of total votes the review received.
+* 'helpful votes' - number of helpful votes.
+* 'vine' - review has been written as a part of the Vine program.
+* Rating Scale is 1-5. 
  
-**Target and methods**:  
-* The target variable is rating.  
-* The main metric is Cumulative Hit Rate. Other metrics that wil be used are listed below.  
-* We intend to use Surprise library to test and develop a new Recommendation system.  
-* For hyper parameter tuning we will use GridSearchCV and RandomizedSearchCV. 
-* We will be following CRISP-DM process for this project. 
+**Target & Metrics**:  
+* The target variable is rating.
+* The main metric is Accuracy Rate and RMSE for Ranking models. 
+* The second important metric is Top-n recommendations. The final algorithms will be tested on multiple users to determine model subjective performance. 
+* We intend to use Neural Network TensorFlow Recommenders to test and develop a new Recommendation system.  
+* We will be following CRISP-DM process for this project.
 
-
-**Metrics**:
-
-| **Metric** | **Description** | **Interpretation** |
-|---|---|---|
-| **RMSE** | Root Mean Squared Error. | Lower values mean better accuracy. |
-| **MAE** | Mean Absolute Error. | Lower values mean better accuracy. |
-| **HR** | Hit Rate; how often we are able to recommend a left-out rating. | Higher is better. |
-| **rHR** | Rated Hit Rate; hit rate broken down by rating scale. | Higher is better. |
-| **cHR** | Cumulative Hit Rate; hit rate, confined to ratings above a certain threshold. | Higher is better. |
-| **ARHR** | Average Reciprocal Hit Rank - Hit rate that takes the ranking into account. | Higher is better. |
-| **Coverage** | Ratio of users for whom recommendations above a certain threshold exist. | Higher is better. |
-| **Diversity** | 1-S, where S is the average similarity score between every possible pair of recommendations for a given user. | Higher means more diverse. |
-| **Novelty** | Average popularity rank of recommended items. | Higher means more novel. |
-
-Above metrics and coding associated with it came from Frank Kane's ['Building Recommender Systems with Machine Learning and AI' course'](https://www.linkedin.com/learning/building-recommender-systems-with-machine-learning-and-ai/)
 
 
 ## Rating Distribution:
