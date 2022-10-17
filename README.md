@@ -9,6 +9,9 @@ The objective:
 
 * Explore Neural Networks by using TensorFlow Recommenders to address Cold Start problem. 
 
+Projected Outcome: 
+* Test Retrieval, Ranking, and Sequential models. 
+
 Stakeholder:
 
 * Marketing team at Amazon
@@ -50,60 +53,48 @@ A note on dataset (from Amazon):
 
 * Rating scale is 0-5. 
 * Rating distribution is skewed left indicating that customers tend to leave positive ratings. 
-* The largest # of rating given is 4.0 followed by 3.0, 3.5 and 5. 
+* The largest # of ratings given is 5 star followed by 4 star. 
 
-![alt text](https://github.com/rusalka013/recommendation_project/blob/main/Visuals/Rating_Distribution.png)
-
-
-## Ratings Distribution by User
-
-* Ratings distribution by user is skewed right indicating that majority of users have left 20+ reviews. 
-* Few users left 100+ reviews. 
-
-![alt text](https://github.com/rusalka013/recommendation_project/blob/main/Visuals/Ratings_dist_by_user.png)
+![alt text](https://github.com/rusalka013/Amazon_Rec_Systems/blob/main/Visuals/Rating_Distribution.png)
 
 
-## Top 20 Recommendations Based on Popularity
+## Historic Ratings Distribution
+
+* Since 2008 the number of reviews has been progressively increasing each year with more than doubling in 2013.
+
+![alt text](https://github.com/rusalka013/Amazon_Rec_Systems/blob/main/Visuals/Historic_Rating_Distribution.png)
 
 
-![alt text](https://github.com/rusalka013/recommendation_project/blob/main/Visuals/Ratings_dist_by_movie.png)
+## Top 5 Recommendations Based on Popularity
+
+
+![alt text](https://github.com/rusalka013/Amazon_Rec_Systems/blob/main/Visuals/Most_popular_products.png)
  
 
-## Untuned SVD Model
+## Item-to-item Retrieval Model
+* Accuracy rate of  Top-10 recommendations is 63.26% on test data. 
+* Roughly over half rcommendations are relevant to out test user whose previous purchase history indicated his/her interest in mountain biking. 
 
-Metrics: 
-
-![alt text](https://github.com/rusalka013/recommendation_project/blob/main/Visuals/SVD_metrics.png)
 
 Top 10 Recommendations: 
 
 ![alt text](https://github.com/rusalka013/recommendation_project/blob/main/Visuals/SVD_recs.png)
  
 
-## Untuned SVD++ MOdel 
-
-Metrics:
-
-![alt text](https://github.com/rusalka013/recommendation_project/blob/main/Visuals/SVDpp_metrics.png)
-
-Top 10 Recommendations: 
-
-![alt text](https://github.com/rusalka013/recommendation_project/blob/main/Visuals/SVDpp_recs.png)
-
 
 ## Conclusions
 
 Business Recommendations: 
 
-* Implement Popularity-based recommendation system for new users.
-* A/B test SVD and SVD++ recommendation models on website. 
+* A/B test item-to-item Retrieval recommendation model on the website for Cold start problem. 
+* Implement ScaNN for efficient and fast serving.
 
 Next Steps: 
-* Further fine tune SVD and SVD++ models
-* Try integrating other features into content-based recommendation system such as year of release, movie details, tags.
-* Potentially develop a hybrid model to incorporate different rec systems. 
-* Allow for input of reviews for new users. 
-* Try neural networks for developing recommendation systems. 
+* Scrub current data from Amazon.com to run the models on the up-to-date dataset. 
+* Further explore TensorFlow Recommenders to build advanced machine learning models. 
+* Incorporate time series data to fine tune Sequential models (RNN: Recurrent Neural Networks).
+* Run Convolutional Neural Networks (CNN) on image and video data. 
+
 
 
 
