@@ -3,7 +3,7 @@
 **Authors:** Elena Burlando
 
 ## How to Use This Repo
-This project was developed in Google Colab. With respect to Google Colab's runtime restrictions, the decision was made to break down the project into multiple notebooks vs to keep everything in one notebook. 
+This project was developed in Google Colab. With respect to Colab's runtime restrictions, the decision was made to break down the project into multiple notebooks vs to keep everything in one notebook. 
 
 EDA notebook is the first notebook that is covering data, business problem, data preeprocessing, and exploratory analysis. 
 
