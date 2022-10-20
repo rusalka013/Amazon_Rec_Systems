@@ -23,7 +23,7 @@ Projected Outcome:
 Stakeholder:
 
 * Marketing team at Amazon
-* 
+
 
 ## Business Problem
 
@@ -77,17 +77,32 @@ A note on dataset (from Amazon):
 
 
 ![alt text](https://github.com/rusalka013/Amazon_Rec_Systems/blob/main/Visuals/Most_popular_products.png)
- 
 
-## Item-to-item Retrieval Model
+## Test User
+customer_id = 52228204. 
+Previous review history rerveals interests in mountain biking and camping. This customer has purchased a scooter and a skateboard as well as Women's and Men's shirts. 
+
+## Item-to-item Retrieval Model 
 * Accuracy rate of  Top-10 recommendations is 63.26% on test data. 
 * Roughly over half rcommendations are relevant to out test user whose previous purchase history indicated his/her interest in mountain biking. 
 
 
-Top 10 Recommendations: 
+Top 10 Recommendations on 115K subset data: 
 
 ![alt text](https://github.com/rusalka013/Amazon_Rec_Systems/blob/main/Visuals/Top-10_recs.png)
- 
+
+Roughly over half rcommendations are relevant to out test user whose previous purchase history indicated his/her interest in mountain biking. 
+
+Top-10 Reccomendations based on 2.3M entries full dataset: 
+![alt text]
+
+Most suggestions are applicable. 
+
+## BruteForce vs ScaNN Serving Performance
+* BruteForce and ScaNN retrieved the same Top-10 recommendations. 
+* BruteForce retrieveed it at 5.29 ms 
+* ScaNN retrieveed it at 4.55 ms
+* ScaNN is 15% faster at the same accuracy rate of 96%. 
 
 
 ## Conclusions
