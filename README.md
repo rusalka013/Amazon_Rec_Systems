@@ -79,8 +79,9 @@ A note on dataset (from Amazon):
 ![alt text](https://github.com/rusalka013/Amazon_Rec_Systems/blob/main/Visuals/Most_popular_products.png)
 
 ## Test User
+
 customer_id = 52228204. 
-Previous review history rerveals interests in mountain biking and camping. This customer has purchased a scooter and a skateboard as well as Women's and Men's shirts. 
+Previous review history reveals interests in mountain biking and camping. This customer has purchased a scooter and a skateboard as well as Women's and Men's shirts. 
 
 ## Item-to-item Retrieval Model 
 * Accuracy rate of  Top-10 recommendations is 63.26% on test data. 
