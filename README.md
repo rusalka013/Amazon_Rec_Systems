@@ -83,18 +83,16 @@ A note on dataset (from Amazon):
 customer_id = 52228204. 
 Previous review history reveals interests in mountain biking and camping. This customer has purchased a scooter and a skateboard as well as Women's and Men's shirts. 
 
-## Item-to-item Retrieval Model 
-* Accuracy rate of  Top-10 recommendations is 63.26% on test data. 
-* Roughly over half rcommendations are relevant to out test user whose previous purchase history indicated his/her interest in mountain biking. 
+## Item-to-item Retrieval Model Results:
+![alt text]
 
-
-Top 10 Recommendations on 115K subset data: 
+## Top 10 Recommendations on 115K subset data: 
 
 ![alt text](https://github.com/rusalka013/Amazon_Rec_Systems/blob/main/Visuals/Top-10_recs.png)
 
 Roughly over half rcommendations are relevant to out test user whose previous purchase history indicated his/her interest in mountain biking. 
 
-Top-10 Reccomendations based on 2.3M entries full dataset: 
+## Top-10 Reccomendations based on 2.3M entries full dataset: 
 ![alt text]
 
 Most suggestions are applicable. 
