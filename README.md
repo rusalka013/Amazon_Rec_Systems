@@ -84,7 +84,7 @@ customer_id = 52228204.
 Previous review history reveals interests in mountain biking and camping. This customer has purchased a scooter and a skateboard as well as Women's and Men's shirts. 
 
 ## Item-to-item Retrieval Model Results:
-![alt text]
+![alt text](https://github.com/rusalka013/Amazon_Rec_Systems/blob/main/Visuals/top-k%20accuracy.png)
 
 ## Top 10 Recommendations on 115K subset data: 
 
@@ -93,15 +93,17 @@ Previous review history reveals interests in mountain biking and camping. This c
 Roughly over half rcommendations are relevant to out test user whose previous purchase history indicated his/her interest in mountain biking. 
 
 ## Top-10 Reccomendations based on 2.3M entries full dataset: 
-![alt text]
+![alt text](https://github.com/rusalka013/Amazon_Rec_Systems/blob/main/Visuals/recs_on_full_data.png)
 
 Most suggestions are applicable. 
 
 ## BruteForce vs ScaNN Serving Performance
 * BruteForce and ScaNN retrieved the same Top-10 recommendations. 
-* BruteForce retrieveed it at 5.29 ms 
-* ScaNN retrieveed it at 4.55 ms
 * ScaNN is 15% faster at the same accuracy rate of 96%. 
+* BruteForce retrieveed it at 5.29 ms 
+![alt text](https://github.com/rusalka013/Amazon_Rec_Systems/blob/main/Visuals/bruteforce.png)
+* ScaNN retrieveed it at 4.55 ms
+![alt text](https://github.com/rusalka013/Amazon_Rec_Systems/blob/main/Visuals/scann.png)
 
 
 ## Conclusions
