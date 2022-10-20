@@ -2,6 +2,14 @@
 
 **Authors:** Elena Burlando
 
+## How to Use This Repo
+This project was developed in Google Colab. With respect to Google Colab's runtime restrictions, the decision was made to break down the project into multiple notebooks vs to keep everything in one notebook. 
+
+EDA notebook is the first notebook that is covering data, business problem, data preeprocessing, and exploratory analysis. 
+
+Model notebooks are located in the same GitHub repo under [models](https://github.com/rusalka013/Amazon_Rec_Systems/tree/main/models) folder. They are listed iin a numerical order with a short description of task in its name. Our best performing model is [model_5](https://github.com/rusalka013/Amazon_Rec_Systems/blob/main/models/model_5_Retrieval_item_item_fine_tuned_full_dataset.ipynb) (Retrieval item-to-item fine-tuned model). 
+
+
 ## Overview
 For this project we will be exploring Neural Networks to build recommendation systems for Amazon Outdoor product reviews dataset. TensorFlow Recommenders will be used to develop Retrieval, Ranking, and Sequential algorithms. BruteForce and ScaNN will be tested for serving models. 
 
@@ -15,13 +23,7 @@ Projected Outcome:
 Stakeholder:
 
 * Marketing team at Amazon
-
-## How to Use This Repo
-This project was developed in Google Colab. With respect to Google Colab's runtime restrictions, the decision was made to break down the project into multiple notebooks vs to keep everything in one notebook. 
-
-EDA notebook is the first notebook that is covering data, business problem, data preeprocessing, and exploratory analysis. 
-
-Model notebooks are located in the same GitHub repo under [models](https://github.com/rusalka013/Amazon_Rec_Systems/tree/main/models) folder. They are listed iin a numerical order with a short description of task in its name. Our best performing model is [model_5](https://github.com/rusalka013/Amazon_Rec_Systems/blob/main/models/model_5_Retrieval_item_item_fine_tuned_full_dataset.ipynb) (Retrieval item-to-item fine-tuned model). 
+* 
 
 ## Business Problem
 
