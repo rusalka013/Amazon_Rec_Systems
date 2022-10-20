@@ -100,9 +100,12 @@ Most suggestions are applicable.
 ## BruteForce vs ScaNN Serving Performance
 * BruteForce and ScaNN retrieved the same Top-10 recommendations. 
 * ScaNN is 15% faster at the same accuracy rate of 96%. 
-* BruteForce retrieveed it at 5.29 ms 
+* BruteForce retrieved Top-10 at:
+
 ![alt text](https://github.com/rusalka013/Amazon_Rec_Systems/blob/main/Visuals/bruteforce.png)
-* ScaNN retrieveed it at 4.55 ms
+
+* ScaNN retrieved Top-10 at:
+
 ![alt text](https://github.com/rusalka013/Amazon_Rec_Systems/blob/main/Visuals/scann.png)
 
 
