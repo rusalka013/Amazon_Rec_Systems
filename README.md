@@ -15,7 +15,7 @@ For this project we will be exploring Neural Networks to build recommendation sy
 
 The objective:
 
-* Explore Neural Networks by using TensorFlow Recommenders to address Cold Start problem. 
+* Using Neural Network to improve product recommendations for Cold Start problem. 
 
 Projected Outcome: 
 * Test Retrieval, Ranking, and Sequential models. 
